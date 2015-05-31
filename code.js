@@ -11,7 +11,8 @@ $(function(){ // on dom ready
 		'text-outline-color': '#888',
 		'width' : 200,
 		'height' : 200,
-//		'shape': 'rectangle',
+		
+		//		'shape': 'rectangle',
 		'shape': 'data(faveShape)',
 //		'background-color' : 'Red',
 		'background-image' : 'b.png',
@@ -21,7 +22,7 @@ $(function(){ // on dom ready
 //		'background-position-x' : '0px',
 		'background-position-y' : '0px',
 		'background-size' : '80px 100px',
-		
+		'border-width': '1px',
 	    })
 	    .selector('edge')
 	    .css({
@@ -39,18 +40,26 @@ $(function(){ // on dom ready
 	    .css({
 		'opacity': 0.25,
 		'text-opacity': 0
+	    })
+	    .selector('.test')
+	    .css({
+		'border-width': '10px',
 	    }),
+
+
+//  ['rectangle', 'roundrectangle', 'ellipse', 'triangle', 'square', 'pentagon', 'hexagon', 'heptagon', 'octagon', 'star', 'diamond', 'vee', 'rhomboid']
 	
 	elements: {
 	    nodes: [
-		{ data: { id: 'j', name: 'Jerry', backgroundheight: '75%', faveShape: 'rectangle' } },
-		{ data: { id: 'e', name: 'Elaine', backgroundheight: '10%', faveShape: 'triangle' } },
-		{ data: { id: 'k', name: 'Kramer', backgroundheight: '75%', faveShape: 'triangle' } },
-		{ data: { id: 'g', name: 'George', backgroundheight: '20%', faveShape: 'triangle' } },
-		{ data: { id: 't', name: 'Tibo', backgroundheight: '75%', faveShape: 'triangle' } },
-		{ data: { id: 'u', name: 'Ursule', backgroundheight: '60%', faveShape: 'triangle' } },
-		{ data: { id: 'v', name: 'Valerie', backgroundheight: '5%', faveShape: 'triangle' } },
-		{ data: { id: 'w', name: 'Watson', backgroundheight: '95%', faveShape: 'triangle' } }
+		{ data: { id: 'j', name: 'Jerry', backgroundheight: '75%', faveShape: 'octagon' } },
+		{ data: { id: 'e', name: 'Elaine', backgroundheight: '10%', faveShape: 'star' } },
+		{ data: { id: 'k', name: 'Kramer', backgroundheight: '75%', faveShape: 'pentagon' } },
+		{ data: { id: 'g', name: 'George', backgroundheight: '20%', faveShape: 'ellipse' } },
+		{ data: { id: 't', name: 'Tibo', backgroundheight: '75%', faveShape: 'hexagon' } },
+		{ data: { id: 'u', name: 'Ursule', backgroundheight: '60%', faveShape: 'vee' } },
+		{ data: { id: 'v', name: 'Valerie', backgroundheight: '5%', faveShape: 'diamond' } },
+		{ data: { id: 'w', name: 'Watson', backgroundheight: '95%', faveShape: 'vee' } },
+		{ data: { id: 'x', name: 'Xavier', backgroundheight: '95%', faveShape: 'rhomboid' } }
 	    ],
 	    edges: [
 		{ data: { source: 'j', target: 'e' } },
@@ -64,12 +73,13 @@ $(function(){ // on dom ready
 		{ data: { source: 'g', target: 'j' } },
 		{ data: { source: 't', target: 'u' } },
 		{ data: { source: 'u', target: 'v' } },
-		{ data: { source: 'v', target: 'w' } }
+		{ data: { source: 'v', target: 'w' } },
+		{ data: { source: 'w', target: 'x' } }
 	    ]
 	},
 	
 	layout: {
-	    name: 'arbor',
+	    name: 'dagre',
 	    padding: 10
 	},
 	
@@ -82,11 +92,16 @@ $(function(){ // on dom ready
 	    cy.elements().unselectify();
 	    
 	    cy.on('tap', 'node', function(e){
-		var node = e.cyTarget; 
-		var neighborhood = node.neighborhood().add(node);
+
 		
+		var node = e.cyTarget;
+
+		node.addClass('test');
+		/*
+		var neighborhood = node.neighborhood().add(node);
 		cy.elements().addClass('faded');
 		neighborhood.removeClass('faded');
+		*/
 	    });
 	    
 	    cy.on('tap', function(e){
@@ -96,5 +111,5 @@ $(function(){ // on dom ready
 	    });
 	}
     });
-
+    
 }); // on dom ready
