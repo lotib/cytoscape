@@ -55,11 +55,14 @@ $(function(){ // on dom ready
 		{ data: { id: 'e', name: 'Elaine', backgroundheight: '10%', faveShape: 'star' } },
 		{ data: { id: 'k', name: 'Kramer', backgroundheight: '75%', faveShape: 'pentagon' } },
 		{ data: { id: 'g', name: 'George', backgroundheight: '20%', faveShape: 'ellipse' } },
-		{ data: { id: 't', name: 'Tibo', backgroundheight: '75%', faveShape: 'hexagon' } },
-		{ data: { id: 'u', name: 'Ursule', backgroundheight: '60%', faveShape: 'vee' } },
+		{ data: { id: 't', name: 'Tibo', backgroundheight: '75%', faveShape: 'triangle' } },
+		{ data: { id: 'u', name: 'Ursule', backgroundheight: '60%', faveShape: 'trianglef' } },
 		{ data: { id: 'v', name: 'Valerie', backgroundheight: '5%', faveShape: 'diamond' } },
 		{ data: { id: 'w', name: 'Watson', backgroundheight: '95%', faveShape: 'vee' } },
-		{ data: { id: 'x', name: 'Xavier', backgroundheight: '95%', faveShape: 'rhomboid' } }
+		{ data: { id: 'x', name: 'Xavier', backgroundheight: '95%', faveShape: 'rhomboid' } },
+		{ data: { id: 'a', name: 'Abba', backgroundheight: '95%', faveShape: 'rhomboid' } },
+		{ data: { id: 'b', name: 'bilou', backgroundheight: '95%', faveShape: 'rhomboid' } },
+		{ data: { id: 'c', name: 'carine', backgroundheight: '95%', faveShape: 'rhomboid' } }
 	    ],
 	    edges: [
 		{ data: { source: 'j', target: 'e' } },
@@ -72,6 +75,9 @@ $(function(){ // on dom ready
 		{ data: { source: 'k', target: 'g' } },
 		{ data: { source: 'g', target: 'j' } },
 		{ data: { source: 't', target: 'u' } },
+		{ data: { source: 't', target: 'a' } },
+		{ data: { source: 't', target: 'b' } },
+		{ data: { source: 't', target: 'c' } },
 		{ data: { source: 'u', target: 'v' } },
 		{ data: { source: 'v', target: 'w' } },
 		{ data: { source: 'w', target: 'x' } }
